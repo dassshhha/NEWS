@@ -6,6 +6,8 @@ import re
 import pymorphy2
 
 morph = pymorphy2.MorphAnalyzer()
+key_words_kol = 25  # число ключевых слов
+doc_words_kol = 3 # необходимое число ключевых слов в заголовке
 
 
 # нахождение документов, в которых есть основа слова и поиск полной формы слова, запись главных новостей
@@ -15,7 +17,7 @@ def find_words_and_doc(wrd):
     for r in range(len(docs)):
         if A[wrd][r] != 0.0:
             with open(str('data/mainNews.txt'), 'a', encoding="utf-8") as news:
-                if words_per_doc[r] > 2 and printed_docs[r] == 0:
+                if words_per_doc[r] >= doc_words_kol and printed_docs[r] == 0:
                     news.write(docs[r] + '\n')
                     printed_docs[r] = 1
             if not wordFind:
@@ -49,7 +51,7 @@ word_stem = [stemmer.stem(w).lower() for w in word if len(w) > 1 and w.isalpha()
 stopword = [stemmer.stem(w).lower() for w in stopwords]  # Стемминг стоп-слов
 word_stop = [w for w in word_stem if w not in stopword]  # Исключение стоп-слов
 fdist = nltk.FreqDist(word_stop)
-t = [w for (w, freq) in fdist.most_common(30)]  # выборка 30 ключевых слов
+t = [w for (w, freq) in fdist.most_common(key_words_kol)]  # выборка из n ключевых слов
 d = {}
 c = []
 for i in range(0, len(docs)):
