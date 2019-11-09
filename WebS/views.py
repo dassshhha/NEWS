@@ -5,7 +5,6 @@ from WebS import app
 @app.route('/')
 @app.route('/mainPage')
 def show_words():
-    # words = []
     lines=[]
     with open(str('data/mainNews.txt'), 'r', encoding="utf-8") as f:
         for line in f.readlines():
