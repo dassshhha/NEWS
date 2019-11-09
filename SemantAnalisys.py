@@ -38,7 +38,7 @@ def find_words_and_doc(wrd):
 
 stemmer = SnowballStemmer('russian')
 stopwords = nltk.corpus.stopwords.words('russian')
-stopwords += ['дом', 'россиян', 'россияне', 'год', 'время', 'россиянин', 'слов', 'дело', 'видео']
+stopwords += ['россиян', 'россияне', 'год', 'время', 'россиянин', 'слов', 'дело', 'видео']
 docs = []
 with open(str('data/parsedNews.txt'), 'r', encoding="utf-8") as f:
     for line in f.readlines():
