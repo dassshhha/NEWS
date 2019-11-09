@@ -1,7 +1,5 @@
 import requests
 from bs4 import BeautifulSoup as bs
-from pathlib import Path
-
 
 headers = {'accept': 'text/html, application/xhtml+xml, application/xml; q=0.9, */*; q=0.8',
            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (HTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362'
