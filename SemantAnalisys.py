@@ -6,7 +6,7 @@ import re
 import pymorphy2
 
 morph = pymorphy2.MorphAnalyzer()
-key_words_kol = 25  # число ключевых слов
+key_words_kol = 30  # число ключевых слов
 doc_words_kol = 3 # необходимое число ключевых слов в заголовке
 
 
